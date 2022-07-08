@@ -12,22 +12,7 @@ uint8_t led = 2;            // the onboard ESP8266 LED.
                             // (replace 2 with BUILTIN_LED)	
 
 
-
-//START VOID CEK KONEKSI
-void cekkoneksi() {
-	
-}
-//END VOID CEK KONEKSI
-
-//START VOID GREETING
-void greeting(){ 
-  TBMessage msg;
-  myBot.sendMessage(msg.sender.id, "HAI ADMINISTRATOR");
-}
-//END VOID GREETING
-
-
-//START VOID SETUP
+//*START VOID SETUP
 void setup() {
 	// initialize the Serial
 	Serial.begin(115200);
@@ -48,10 +33,10 @@ void setup() {
 	pinMode(led, OUTPUT);
 	digitalWrite(led, HIGH); // turn off the led (inverted logic!)
 }
-//END VOID SETUP
+//*END VOID SETUP
 
 
-//START VOID LOOP
+//*START VOID LOOP
 void loop() {
   	TBMessage msg;
 
@@ -76,4 +61,19 @@ void loop() {
 	// wait 500 milliseconds
 	delay(500);
 }
-//END VOID LOOP
+//*END VOID LOOP
+
+
+//*START VOID CEK KONEKSI
+void cekkoneksi() {
+	
+}
+//*END VOID CEK KONEKSI
+
+
+//*START VOID GREETING
+void greeting(){ 
+  TBMessage msg;
+  myBot.sendMessage(msg.sender.id, "HAI ADMINISTRATOR");
+}
+//*END VOID GREETING
