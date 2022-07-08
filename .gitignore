@@ -1,0 +1,14 @@
+Projects/TELEBOT/.gitignore
+Projects/TELEBOT/platformio.ini
+Projects/TELEBOT/.vscode/extensions.json
+Projects/TELEBOT/include/README
+Projects/TELEBOT/lib/README
+Projects/TELEBOT/src/main.cpp
+Projects/TELEBOT/test/README
+Projects/TELEBOT v1.0 BASIC/.gitignore
+Projects/TELEBOT v1.0 BASIC/platformio.ini
+Projects/TELEBOT v1.0 BASIC/.vscode/extensions.json
+Projects/TELEBOT v1.0 BASIC/include/README
+Projects/TELEBOT v1.0 BASIC/lib/README
+Projects/TELEBOT v1.0 BASIC/src/main.cpp
+Projects/TELEBOT v1.0 BASIC/test/README
