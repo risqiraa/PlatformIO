@@ -15,6 +15,20 @@ uint8_t led = 2;            // the onboard ESP8266 LED.
 
 //START VOID CEK KONEKSI
 void cekkoneksi() {
+	
+}
+//END VOID CEK KONEKSI
+
+//START VOID GREETING
+void greeting(){ 
+  TBMessage msg;
+  myBot.sendMessage(msg.sender.id, "HAI ADMINISTRATOR");
+}
+//END VOID GREETING
+
+
+//START VOID SETUP
+void setup() {
 	// initialize the Serial
 	Serial.begin(115200);
 	Serial.println("Starting TelegramBot...");
@@ -30,20 +44,8 @@ void cekkoneksi() {
 		Serial.println("\ntestConnection OK");
 	else
 		Serial.println("\ntestConnection NOK");
-}
-//END VOID CEK KONEKSI
-
-//START VOID GREETING
-void greeting(){ 
-  TBMessage msg;
-  myBot.sendMessage(msg.sender.id, "HAI ADMINISTRATOR");
-}
-//END VOID GREETING
-
-
-//START VOID SETUP
-void setup() {
-  pinMode(led, OUTPUT);
+		
+	pinMode(led, OUTPUT);
 	digitalWrite(led, HIGH); // turn off the led (inverted logic!)
 }
 //END VOID SETUP
