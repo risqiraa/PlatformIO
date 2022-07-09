@@ -17,6 +17,8 @@ uint8_t led6 = D7;
 
 //*START VOID SETUP
 void setup() {
+	TBMessage msg;
+	
 	// initialize the Serial
 	Serial.begin(115200);
 
@@ -46,6 +48,7 @@ void setup() {
 	digitalWrite(led5, LOW); 
 	digitalWrite(led6, LOW); 
 	
+	myBot.sendMessage(msg.sender.id, "PILIH MENU"); 
 }
 //*END VOID SETUP
 
@@ -136,3 +139,102 @@ void loop() {
 //*END VOID LOOP
 
 
+//*VOID L1 START
+void L1ON (){
+
+}
+//*VOID L1 END
+
+
+//*VOID L2 START
+void L2ON (){
+
+}
+//*VOID L2 END
+
+
+//*VOID L3 START
+void L3ON (){
+
+}
+//*VOID L3 END
+
+
+//*VOID L4 START
+void L4ON (){
+
+}
+//*VOID L4 END
+
+
+//*VOID L5 START
+void L5ON (){
+
+}
+//*VOID L5 END
+
+
+//*VOID L6 START
+void L6ON (){
+
+}
+//*VOID L6 END
+
+
+//*VOID ALL START
+void ALLLAMPON(){
+
+}
+//*VOID ALL END
+
+
+
+//-------------------------------------------------------------------------------->
+
+//*VOID L1 START
+void L1OFF (){
+
+}
+//*VOID L1 END
+
+
+//*VOID L2 START
+void L2OFF (){
+
+}
+//*VOID L2 END
+
+
+//*VOID L3 START
+void L3OFF (){
+
+}
+//*VOID L3 END
+
+
+//*VOID L4 START
+void L4OFF (){
+
+}
+//*VOID L4 END
+
+
+//*VOID L5 START
+void L5OFF (){
+
+}
+//*VOID L5 END
+
+
+//*VOID L6 START
+void L6OFF (){
+
+}
+//*VOID L6 END
+
+
+//*VOID ALL START
+void ALLLAMPOFF(){
+
+}
+//*VOID ALL END
