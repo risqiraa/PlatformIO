@@ -15,6 +15,20 @@ uint8_t led4 = D5;
 uint8_t led5 = D6;
 uint8_t led6 = D7;
 
+String led1status = "OFF";
+String led2status = "OFF";
+String led3status = "OFF";
+String led4status = "OFF";
+String led5status = "OFF";
+String led6status = "OFF";
+
+int jumlhonled1 = 0;
+int jumlhonled2 = 0;
+int jumlhonled3 = 0;
+int jumlhonled4 = 0;
+int jumlhonled5 = 0;
+int jumlhonled6 = 0;
+
 //!----------------------------------------------------------->
 //*START VOID SETUP
 void setup()
@@ -56,11 +70,13 @@ void setup()
 void L1ON()
 {
 	digitalWrite(led1, HIGH);
+	led1status = "ON";
 	myBot.sendMessage(msg.sender.id, "L1 is now ON ");
 }
 void L1OFF()
 {
 	digitalWrite(led1, LOW);
+	led1status = "OFF";
 	myBot.sendMessage(msg.sender.id, "L1 is now OFF");
 }
 //*VOID L1 END
@@ -69,11 +85,13 @@ void L1OFF()
 void L2ON()
 {
 	digitalWrite(led2, HIGH);
+	led2status = "ON";
 	myBot.sendMessage(msg.sender.id, "L2 is now ON ");
 }
 void L2OFF()
 {
 	digitalWrite(led2, LOW);
+	led2status = "OFF";
 	myBot.sendMessage(msg.sender.id, "L2 is now OFF");
 }
 //*VOID L2 END
@@ -82,12 +100,14 @@ void L2OFF()
 void L3ON()
 {
 	digitalWrite(led3, HIGH);
+	led3status = "ON";
 	myBot.sendMessage(msg.sender.id, "L3 is now ON ");
 }
 
 void L3OFF()
 {
 	digitalWrite(led3, LOW);
+	led3status = "OFF";
 	myBot.sendMessage(msg.sender.id, "L3 is now OFF");
 }
 //*VOID L3 END
@@ -96,12 +116,14 @@ void L3OFF()
 void L4ON()
 {
 	digitalWrite(led4, HIGH);
+	led4status = "ON";
 	myBot.sendMessage(msg.sender.id, "L4 is now ON ");
 }
 
 void L4OFF()
 {
 	digitalWrite(led4, LOW);
+	led4status = "OFF";
 	myBot.sendMessage(msg.sender.id, "L4 is now OFF");
 }
 //*VOID L4 END
@@ -110,13 +132,15 @@ void L4OFF()
 void L5ON()
 {
 	digitalWrite(led5, HIGH);
+	led5status = "ON";
 	myBot.sendMessage(msg.sender.id, "L5 is now ON ");
-	digitalWrite(led5, LOW);
-	myBot.sendMessage(msg.sender.id, "L5 is now OFF");
 }
 
 void L5OFF()
 {
+	digitalWrite(led5, LOW);
+	led5status = "OFF";
+	myBot.sendMessage(msg.sender.id, "L5 is now OFF");
 }
 //*VOID L5 END
 
@@ -124,12 +148,14 @@ void L5OFF()
 void L6ON()
 {
 	digitalWrite(led6, HIGH);
+	led6status = "ON";
 	myBot.sendMessage(msg.sender.id, "L6 is now ON ");
 }
 
 void L6OFF()
 {
 	digitalWrite(led6, LOW);
+	led6status = "OFF";
 	myBot.sendMessage(msg.sender.id, "L6 is now OFF");
 }
 //*VOID L6 END
@@ -143,6 +169,13 @@ void ALLLAMPON()
 	digitalWrite(led4, HIGH);
 	digitalWrite(led5, HIGH);
 	digitalWrite(led6, HIGH);
+
+	led1status = "ON";
+	led2status = "ON";
+	led3status = "ON";
+	led4status = "ON";
+	led5status = "ON";
+	led6status = "ON";
 	myBot.sendMessage(msg.sender.id, "ALL Lamp is now ON");
 }
 
@@ -154,9 +187,45 @@ void ALLLAMPOFF()
 	digitalWrite(led4, LOW);
 	digitalWrite(led5, LOW);
 	digitalWrite(led6, LOW);
+
+	led1status = "OFF";
+	led2status = "OFF";
+	led3status = "OFF";
+	led4status = "OFF";
+	led5status = "OFF";
+	led6status = "OFF";
 	myBot.sendMessage(msg.sender.id, "ALL Lamp is now OFF");
 }
 //*VOID ALL END
+
+//*VOID STATUS LAMPU START
+void statusmenu()
+{
+	myBot.sendMessage(msg.sender.id, "<========>"
+									 "\nL1 : " +
+										 led1status + "\nL2 : " + led2status + "\nL3 : " + led3status + "\nL4 : " + led4status + "\nL5 : " + led5status + "\nL6 : " + led6status + "\n<========>");
+}
+//*VOID STATUS LAMPU END
+
+//*VOID TUTORIAL START
+void menu()
+{
+	myBot.sendMessage(msg.sender.id, "FITUR\n========================\nL1 ON/OFF : Lampu lantai 1\nL2 ON/OFF : Lampu lantai 2\nL3 ON/OFF : Lampu lantai 3\nL4 ON/OFF : Lampu lantai 4\nL5 ON/OFF : Lampu lantai 5\nL6 ON/OFF : Lampu lantai 6\nALL ON/OFF : Lampu semua lantai\n========================\n*note : hanya gunakan salah satu perintah ON atau OFF");
+}
+//*VOID TUTORIAL END
+
+//*VOID GREETING START
+void greeting()
+{
+	myBot.sendMessage(msg.sender.id, "USER ID : " + msg.sender.username + "\n========================\n/status : untuk melihat status semua lampu");
+} //*VOID GREETING END
+
+//*VOID ERROR MESSAGE START
+void errormessage()
+{
+	myBot.sendMessage(msg.sender.id, "error : menu yang anda pilih tidak ada\n========================\nSilahkan ketik /menu untuk melihat informasi fitur yang tersedia");
+}
+//*VOID ERROR MESSAGE END
 
 //!-------------------------------------------------------------------------------->
 //*START VOID LOOP
@@ -228,16 +297,21 @@ void loop()
 		{
 			ALLLAMPOFF();
 		}
+		else if (msg.text.equalsIgnoreCase("/status"))
+		{
+			statusmenu();
+		}
+		else if (msg.text.equalsIgnoreCase("/menu"))
+		{
+			menu();
+		}
 		else if (msg.text.equalsIgnoreCase("/start"))
 		{
-			myBot.sendMessage(msg.sender.id, "Selamat datang administrator " + msg.sender.username);
+			greeting();
 		}
 		else
 		{ // otherwise...
-			// generate the message for the sender
-			String reply;
-			reply = (String) "Welcome " + msg.sender.username + (String) ". Try L1 ON or L1 OFF.";
-			myBot.sendMessage(msg.sender.id, reply); // and send it
+			errormessage();
 		}
 	}
 	// wait 500 milliseconds
